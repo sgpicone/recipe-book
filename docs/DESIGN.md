@@ -40,6 +40,8 @@ As a user, I want to be able to:
 Application will be a MEAN stack, most likely. Angular 6/7? will operate as the frontend application, with ExpressJS exposing a REST API to the NodeJS backend that provides access to a mongodb datastore (probably).
 
 ## Viewing recipes
+At application startup, a GET REST request will be sent to the backend for retreiving summary data about all of the recipes from the datastore. Summary data should include only the name, description, and tags of each recipe.
+
 Users will be provided with a view displaying a list of available recipes. This list will be in a tabular format and, on larger displays, occupy (roughly) 50% of the screen. This table will contain the high-level metadata of each recipe, e.g. Name, description, tags. On large screens, when a recipe is highlighted/selected, the other (right hand) 50% of the screen will display a preview of the recipe. 
 
 The recipe list will be paginated.
@@ -53,7 +55,7 @@ The far right hand side of the recipe list will contain an X field, which the us
 ---
 ## Viewing a single recipe
 
-Clicking/selecting the recipe name will change the view to displaying the recipe on the full screen.
+Clicking/selecting the recipe name will change the view to displaying the recipe on the full screen. This will send a GET REST request to the backend to query the database for the full data of the recipe.
 
 When viewing a recipe, a back button in the top left side of the page will allow the user to navigate back to the recipe list.
 
