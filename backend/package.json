@@ -1,7 +1,7 @@
 {
-  "name": "bee-book-backend",
+  "name": "recipe-book-backend",
   "version": "1.0.0",
-  "description": "The backend for the 'bee book application",
+  "description": "The backend for the recipe book application",
   "main": "index.js",
   "scripts": {
     "dev": "babel-watch server.js",
