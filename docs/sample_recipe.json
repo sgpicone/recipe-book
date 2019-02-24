@@ -1,0 +1,54 @@
+{
+    "uid": 1,
+    "name": "Recipe Name",
+    "description": "This is a recipe description",
+    "ingredients": [
+        {
+            "name": "Ingredient name",
+            "qty": 1.25,
+            "unit": {
+                "uid": 2,
+                "name": "cup",
+                "type": "imp"
+            }
+        },
+        {
+            "name": "Ingredient name",
+            "qty": 25.0,
+            "unit": {
+                "uid": 12,
+                "name": "gram",
+                "type": "met"
+            }
+        }
+    ],
+    "method": [
+      {
+        "section": 1,
+        "time": 12,
+        "steps": [
+          {
+              "step": 1,
+              "description": "Lorem ipsum dolor"
+          },
+          {
+              "step": 2,
+              "description": "Lorem ipsum dolor"
+          }
+        ]
+      }
+    ],
+    "created": "2018-11-13T20:20:39+00:00",
+    "lastModified": "2018-11-13T20:20:39+00:00",
+    "src": "https://foodwishes.blogspot.com/2019/02/creamy-cashew-chicken-curry-moooove.html",
+    "tags": [
+        "tag1",
+        "tag2",
+        "tag3"
+    ],
+    "links": [
+        "link1",
+        "link2",
+        "link3"
+    ]
+}

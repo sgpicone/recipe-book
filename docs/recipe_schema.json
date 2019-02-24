@@ -1,0 +1,261 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+        "uid",
+        "name",
+        "description",
+        "ingredients",
+        "method",
+        "created",
+        "lastModified",
+        "src",
+        "tags",
+        "links"
+    ],
+    "properties": {
+        "uid": {
+            "$id": "#/properties/uid",
+            "type": "integer",
+            "title": "The Uid Schema",
+            "default": 0,
+            "examples": [
+                1
+            ]
+        },
+        "name": {
+            "$id": "#/properties/name",
+            "type": "string",
+            "title": "The Name Schema",
+            "default": "",
+            "examples": [
+                "Recipe Name"
+            ],
+            "pattern": "^(.*)$"
+        },
+        "description": {
+            "$id": "#/properties/description",
+            "type": "string",
+            "title": "The Description Schema",
+            "default": "",
+            "examples": [
+                "This is a recipe description"
+            ],
+            "pattern": "^(.*)$"
+        },
+        "ingredients": {
+            "$id": "#/properties/ingredients",
+            "type": "array",
+            "title": "The Ingredients Schema",
+            "items": {
+                "$id": "#/properties/ingredients/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                    "name",
+                    "qty",
+                    "unit"
+                ],
+                "properties": {
+                    "name": {
+                        "$id": "#/properties/ingredients/items/properties/name",
+                        "type": "string",
+                        "title": "The Name Schema",
+                        "default": "",
+                        "examples": [
+                            "Ingredient name"
+                        ],
+                        "pattern": "^(.*)$"
+                    },
+                    "qty": {
+                        "$id": "#/properties/ingredients/items/properties/qty",
+                        "type": "number",
+                        "title": "The Qty Schema",
+                        "default": 0.0,
+                        "examples": [
+                            1.25
+                        ]
+                    },
+                    "unit": {
+                        "$id": "#/properties/ingredients/items/properties/unit",
+                        "type": "object",
+                        "title": "The Unit Schema",
+                        "required": [
+                            "uid",
+                            "name",
+                            "type"
+                        ],
+                        "properties": {
+                            "uid": {
+                                "$id": "#/properties/ingredients/items/properties/unit/properties/uid",
+                                "type": "integer",
+                                "title": "The Uid Schema",
+                                "default": 0,
+                                "examples": [
+                                    2
+                                ]
+                            },
+                            "name": {
+                                "$id": "#/properties/ingredients/items/properties/unit/properties/name",
+                                "type": "string",
+                                "title": "The Name Schema",
+                                "default": "",
+                                "examples": [
+                                    "cup"
+                                ],
+                                "pattern": "^(.*)$"
+                            },
+                            "type": {
+                                "$id": "#/properties/ingredients/items/properties/unit/properties/type",
+                                "type": "string",
+                                "title": "The Type Schema",
+                                "default": "",
+                                "examples": [
+                                    "imp"
+                                ],
+                                "pattern": "^(.*)$"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "method": {
+            "$id": "#/properties/method",
+            "type": "array",
+            "title": "The Method Schema",
+            "items": {
+                "$id": "#/properties/method/items",
+                "type": "object",
+                "title": "The Items Schema",
+                "required": [
+                    "section",
+                    "time",
+                    "steps"
+                ],
+                "properties": {
+                    "section": {
+                        "$id": "#/properties/method/items/properties/section",
+                        "type": "integer",
+                        "title": "The Section Schema",
+                        "default": 0,
+                        "examples": [
+                            1
+                        ]
+                    },
+                    "time": {
+                        "$id": "#/properties/method/items/properties/time",
+                        "type": "integer",
+                        "title": "The Time Schema",
+                        "default": 0,
+                        "examples": [
+                            12
+                        ]
+                    },
+                    "steps": {
+                        "$id": "#/properties/method/items/properties/steps",
+                        "type": "array",
+                        "title": "The Steps Schema",
+                        "items": {
+                            "$id": "#/properties/method/items/properties/steps/items",
+                            "type": "object",
+                            "title": "The Items Schema",
+                            "required": [
+                                "step",
+                                "description"
+                            ],
+                            "properties": {
+                                "step": {
+                                    "$id": "#/properties/method/items/properties/steps/items/properties/step",
+                                    "type": "integer",
+                                    "title": "The Step Schema",
+                                    "default": 0,
+                                    "examples": [
+                                        1
+                                    ]
+                                },
+                                "description": {
+                                    "$id": "#/properties/method/items/properties/steps/items/properties/description",
+                                    "type": "string",
+                                    "title": "The Description Schema",
+                                    "default": "",
+                                    "examples": [
+                                        "Lorem ipsum dolor"
+                                    ],
+                                    "pattern": "^(.*)$"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "created": {
+            "$id": "#/properties/created",
+            "type": "string",
+            "title": "The Created Schema",
+            "default": "",
+            "examples": [
+                "2018-11-13T20:20:39+00:00"
+            ],
+            "pattern": "^(.*)$"
+        },
+        "lastModified": {
+            "$id": "#/properties/lastModified",
+            "type": "string",
+            "title": "The Lastmodified Schema",
+            "default": "",
+            "examples": [
+                "2018-11-13T20:20:39+00:00"
+            ],
+            "pattern": "^(.*)$"
+        },
+        "src": {
+            "$id": "#/properties/src",
+            "type": "string",
+            "title": "The Src Schema",
+            "default": "",
+            "examples": [
+                "https://foodwishes.blogspot.com/2019/02/creamy-cashew-chicken-curry-moooove.html"
+            ],
+            "pattern": "^(.*)$"
+        },
+        "tags": {
+            "$id": "#/properties/tags",
+            "type": "array",
+            "title": "The Tags Schema",
+            "items": {
+                "$id": "#/properties/tags/items",
+                "type": "string",
+                "title": "The Items Schema",
+                "default": "",
+                "examples": [
+                    "tag1",
+                    "tag2",
+                    "tag3"
+                ],
+                "pattern": "^(.*)$"
+            }
+        },
+        "links": {
+            "$id": "#/properties/links",
+            "type": "array",
+            "title": "The Links Schema",
+            "items": {
+                "$id": "#/properties/links/items",
+                "type": "string",
+                "title": "The Items Schema",
+                "default": "",
+                "examples": [
+                    "link1",
+                    "link2",
+                    "link3"
+                ],
+                "pattern": "^(.*)$"
+            }
+        }
+    }
+}
