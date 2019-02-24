@@ -32,7 +32,7 @@ As a user, I want to be able to:
         * Important or otherwise valuable links
 1. Include an existing recipe within a recipe
 1. Delete recipes
-1. Source control my recipes 
+1. Source control my recipes
 1. Revert to an old version of a recipe
 1. *** Log when I have made a recipe and include any comments, thoughts, or changes
 1. Convert ingredient units into other common units
@@ -46,7 +46,7 @@ Application will be a MEAN stack, most likely. Angular 6/7? will operate as the 
 
 At application startup, a GET REST request will be sent to the backend for retreiving summary data about all of the recipes from the datastore. Summary data should include only the name, description, and tags of each recipe.
 
-Users will be provided with a view displaying a list of available recipes. This list will be in a tabular format and, on larger displays, occupy (roughly) 50% of the screen. This table will contain the high-level metadata of each recipe, e.g. Name, description, tags. On large screens, when a recipe is highlighted/selected, the other (right hand) 50% of the screen will display a preview of the recipe. 
+Users will be provided with a view displaying a list of available recipes. This list will be in a tabular format and, on larger displays, occupy (roughly) 50% of the screen. This table will contain the high-level metadata of each recipe, e.g. Name, description, tags. On large screens, when a recipe is highlighted/selected, the other (right hand) 50% of the screen will display a preview of the recipe.
 
 The recipe list will be paginated.
 
@@ -76,7 +76,7 @@ A global button will be provided at the top of the screen on all pages for creat
 
 The create recipe screen will be a form that allows the user to fill in all of the fields of a recipe, detailed in [Recipe Format](#recipe-format).
 
-To save the recipe to the datastore, the user will be able to press a button located at the top of the screen to save the recipe. This will POST a REST request to the backend, with the body containing 
+To save the recipe to the datastore, the user will be able to press a button located at the top of the screen to save the recipe. This will POST a REST request to the backend, with the body containing the new recipe to be added, in JSON format.
 
 ---
 
@@ -84,7 +84,7 @@ To save the recipe to the datastore, the user will be able to press a button loc
 
 When [viewing a single recipe](#viewing-a-single-recipe), a save button will exist at the top of the screen. The button will be disabled by default, but various fields will contain a pencil icon which the user may click to edit that field.
 
- Once a field is edited, the save button will become enabled. 
+ Once a field is edited, the save button will become enabled.
 
 Clicking the back button after editing one or more fields without saving will prompt the user to save or discard the changes.
 
@@ -94,7 +94,7 @@ Clicking the back button after editing one or more fields without saving will pr
 
 The user can click on an X icon on the far right side of the [tabular recipe view](#viewing-recipes) in order to delete a recipe.
 
-When [viewing a single recipe](#viewing-a-single-recipe), the user will also be afforded the option to delete the current recipe. 
+When [viewing a single recipe](#viewing-a-single-recipe), the user will also be afforded the option to delete the current recipe.
 
 ---
 
