@@ -1,0 +1,36 @@
+swagger: "2.0"
+info:
+  description: API for the Recipe Book recipe book application
+  version: 1.0.0
+  title: Recipe Book API
+basePath: "/api/v1"
+paths:
+  /recipes:
+    get:
+      tags:
+        - "recipes"
+      summary: "Get list of all recipes"
+      operationId: "recipes"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Successfully retrieved recipe list"
+          schema:
+            type: array
+            items:
+              $ref: './rec-defs.yml#/definitions/Recipe'
+  /ping:
+    get:
+      tags:
+        - "root"
+      summary: "Get server information"
+      operationId: "ping"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "success"
+          schema:
+            $ref: "./rec-defs.yml#/definitions/ServerInfo"
+

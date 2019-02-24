@@ -1,2 +1,3 @@
 const ping = require('./ping');
-module.exports = { ping };
+const recipes = require('./recipes');
+module.exports = { ping, recipes };
