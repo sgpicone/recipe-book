@@ -1,6 +1,9 @@
+/** DEPRECATED **/
 const express = require('express');
 const SwaggerParser = require('swagger-parser');
 const swaggerRoutes = require('swagger-routes-express');
+
+const dbConnect = require('./dbConnect');
 const api = require('./api');
 
 const makeApp = async () => {
@@ -10,11 +13,13 @@ const makeApp = async () => {
     const app = express();
     console.log('app created');
     //other app stuff
+
     
     connect(app);
     console.log('connected app to swagger');
 
     //error handlers
+    dbConnect();
 
     return app;
 }

@@ -1,9 +1,17 @@
-const sampleRecipe = require('../../test/sample_recipe.json');
+const express = require('express');
+const router = express.Router();
+const Recipe = require('../models/Recipe');
 
 const recipes = (req, res) => {
-    res.json({
-        sampleRecipe
-    });
+    Recipe.find((err, recipes) => {
+        if(err) {
+            console.error(err);
+        } else {
+            res.json(recipes);
+        }
+    }) ;
 }
 
-module.exports = recipes;
+router.get('/', recipes);
+
+module.exports = router

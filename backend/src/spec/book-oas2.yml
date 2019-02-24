@@ -20,6 +20,19 @@ paths:
             type: array
             items:
               $ref: './rec-defs.yml#/definitions/Recipe'
+    post:
+      summary: "Creates a new recipe"
+      consumes:
+        - "application/json"
+      parameters:
+        - in: body
+          name: "recipe"
+          description: "The recipe to be created"
+          schema:
+            $ref: "./rec-defs.yml#/definitions/Recipe"
+      responses:
+        201:
+          description: "Created new recipe"
   /ping:
     get:
       tags:

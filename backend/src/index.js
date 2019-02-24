@@ -1,12 +1,14 @@
-const makeApp = require('./makeApp');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const port = process.env.PORT || 3000;
 
-const port = 3000;
+const dbConnect = require('./dbConnect');
 
-makeApp()
-    .then(app => app.listen(port))
-    .then(() => {
-        console.log(`Server started and listening on port ${port}`);
-    })
-    .catch(err => {
-        console.error('Caught error', err);
-    });
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(require('./api'));
+
+dbConnect();
+
+app.listen(port, () => console.log(`Listening on port ${port}`));

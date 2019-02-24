@@ -4,6 +4,9 @@ const {
     description
 } = require ('../../package.json');
 
+const express = require('express');
+const router = express.Router();
+
 const ping = (req, res) => {
     res.json({
         name, 
@@ -13,4 +16,6 @@ const ping = (req, res) => {
     });
 };
 
-module.exports = ping;
+router.get('/', ping);
+
+module.exports = router;

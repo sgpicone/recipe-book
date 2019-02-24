@@ -4,7 +4,8 @@
   "description": "The backend for the recipe book application",
   "main": "index.js",
   "scripts": {
-    "dev": "babel-watch server.js",
+    "babeldev": "babel-watch src/index.js",
+    "dev": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
