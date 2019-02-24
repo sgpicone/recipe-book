@@ -4,7 +4,7 @@ Recipe Book is an application for creating, storing, and categorizing recipes. A
 
 ## Story definitions
 
-[View the trello board](https://trello.com/b/y9YRhAjb/bee-book)
+[View the trello board](https://trello.com/b/y9YRhAjb/recipe-book)
 
 *** Indicates MVP target feature
 
