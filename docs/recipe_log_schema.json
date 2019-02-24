@@ -1,0 +1,99 @@
+{
+    "definitions": {},
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "http://example.com/root.json",
+    "type": "object",
+    "title": "The Root Schema",
+    "required": [
+        "uid",
+        "recipe",
+        "created",
+        "comments",
+        "adjustments"
+    ],
+    "properties": {
+        "uid": {
+            "$id": "#/properties/uid",
+            "type": "integer",
+            "title": "The Uid Schema",
+            "default": 0,
+            "examples": [
+                1
+            ]
+        },
+        "recipe": {
+            "$id": "#/properties/recipe",
+            "type": "object",
+            "title": "The Recipe Schema",
+            "required": [
+                "uid",
+                "name"
+            ],
+            "properties": {
+                "uid": {
+                    "$id": "#/properties/recipe/properties/uid",
+                    "type": "integer",
+                    "title": "The Uid Schema",
+                    "default": 0,
+                    "examples": [
+                        2
+                    ]
+                },
+                "name": {
+                    "$id": "#/properties/recipe/properties/name",
+                    "type": "string",
+                    "title": "The Name Schema",
+                    "default": "",
+                    "examples": [
+                        "Chocolate Chip Cookies"
+                    ],
+                    "pattern": "^(.*)$"
+                }
+            }
+        },
+        "created": {
+            "$id": "#/properties/created",
+            "type": "string",
+            "title": "The Created Schema",
+            "default": "",
+            "examples": [
+                "2018-11-13T20:20:39+00:00"
+            ],
+            "pattern": "^(.*)$"
+        },
+        "comments": {
+            "$id": "#/properties/comments",
+            "type": "array",
+            "title": "The Comments Schema",
+            "items": {
+                "$id": "#/properties/comments/items",
+                "type": "string",
+                "title": "The Items Schema",
+                "default": "",
+                "examples": [
+                    "Comment 1",
+                    "Comment 2",
+                    "Comment 3"
+                ],
+                "pattern": "^(.*)$"
+            }
+        },
+        "adjustments": {
+            "$id": "#/properties/adjustments",
+            "type": "array",
+            "title": "The Adjustments Schema",
+            "items": {
+                "$id": "#/properties/adjustments/items",
+                "type": "string",
+                "title": "The Items Schema",
+                "default": "",
+                "examples": [
+                    "Adjustment 1",
+                    "Adjustment 2",
+                    "Adjustment 3"
+                ],
+                "pattern": "^(.*)$"
+            }
+        }
+    }
+}

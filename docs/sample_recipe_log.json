@@ -1,0 +1,18 @@
+{
+    "uid": 1,
+    "recipe": {
+        "uid": 2,
+        "name": "Chocolate Chip Cookies"
+    },
+    "created": "2018-11-13T20:20:39+00:00",
+    "comments": [
+        "Comment 1",
+        "Comment 2",
+        "Comment 3"
+    ],
+    "adjustments": [
+        "Adjustment 1",
+        "Adjustment 2",
+        "Adjustment 3"
+    ]
+}
