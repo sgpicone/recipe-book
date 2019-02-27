@@ -1,13 +1,11 @@
 {
-    "uid": 1,
-    "name": "Recipe Name",
+    "name": "Cookies",
     "description": "This is a recipe description",
     "ingredients": [
         {
             "name": "Ingredient name",
             "qty": 1.25,
             "unit": {
-                "uid": 2,
                 "name": "cup",
                 "metric": false
             }
@@ -16,7 +14,6 @@
             "name": "Ingredient name",
             "qty": 25.0,
             "unit": {
-                "uid": 12,
                 "name": "gram",
                 "metric": true
             }
@@ -38,6 +35,11 @@
         ]
       }
     ],
+    "serves": 4,
+    "servingSize": {
+        "number": 2,
+        "unit": "cups"
+    },
     "created": "2018-11-13T20:20:39+00:00",
     "lastModified": "2018-11-13T20:20:39+00:00",
     "src": "https://foodwishes.blogspot.com/2019/02/creamy-cashew-chicken-curry-moooove.html",

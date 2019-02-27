@@ -4,6 +4,10 @@ const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const url = require('url');
 
+const { ipcMain } = require('electron');
+const IPC_CHANNELS = require('./util/ipcChannels');
+const model = require('./model');
+
 //global window reference, or else the window will close automatically when the object is
 //garbage collected
 let win;
@@ -15,9 +19,9 @@ function isDev() {
 
 function createWindow() {
     win = new BrowserWindow({ width: 800, height: 600 });
-    console.log(path.join(__dirname, '/dist/recipe-book/index.html'));
+    console.log(path.join(__dirname, '../dist/recipe-book/index.html'));
     win.loadURL(url.format({
-        pathname: path.join(__dirname, '/dist/recipe-book/index.html'),
+        pathname: path.join(__dirname, '../dist/recipe-book/index.html'),
         protocol: 'file',
         slashes: true
     }));
@@ -55,4 +59,14 @@ app.on('activate', () => {
     if (win === null) {
         createWindow();
     }
+});
+
+ipcMain.on('ping', (event) => {
+    event.sender.send('pong');
+    console.log('rcvd ping, sndg pong');
+});
+
+ipcMain.on(IPC_CHANNELS.GET_RECIPE_LIST, (event) => {
+    event.sender.send(IPC_CHANNELS.GET_RECIPE_LIST, model.getRecipes());
+    console.log('sending recipes');
 });
