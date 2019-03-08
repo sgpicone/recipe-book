@@ -5,11 +5,12 @@
     "type": "object",
     "title": "The Root Schema",
     "required": [
-        "uid",
         "name",
         "description",
         "ingredients",
         "method",
+        "serves",
+        "servingSize",
         "created",
         "lastModified",
         "src",
@@ -17,22 +18,13 @@
         "links"
     ],
     "properties": {
-        "uid": {
-            "$id": "#/properties/uid",
-            "type": "integer",
-            "title": "The Uid Schema",
-            "default": 0,
-            "examples": [
-                1
-            ]
-        },
         "name": {
             "$id": "#/properties/name",
             "type": "string",
             "title": "The Name Schema",
             "default": "",
             "examples": [
-                "Recipe Name"
+                "Chocolate Chip Cookies"
             ],
             "pattern": "^(.*)$"
         },
@@ -66,17 +58,17 @@
                         "title": "The Name Schema",
                         "default": "",
                         "examples": [
-                            "Ingredient name"
+                            "Unsalted Butter"
                         ],
                         "pattern": "^(.*)$"
                     },
                     "qty": {
                         "$id": "#/properties/ingredients/items/properties/qty",
-                        "type": "number",
+                        "type": "integer",
                         "title": "The Qty Schema",
-                        "default": 0.0,
+                        "default": 0,
                         "examples": [
-                            1.25
+                            1
                         ]
                     },
                     "unit": {
@@ -84,20 +76,10 @@
                         "type": "object",
                         "title": "The Unit Schema",
                         "required": [
-                            "uid",
                             "name",
-                            "type"
+                            "metric"
                         ],
                         "properties": {
-                            "uid": {
-                                "$id": "#/properties/ingredients/items/properties/unit/properties/uid",
-                                "type": "integer",
-                                "title": "The Uid Schema",
-                                "default": 0,
-                                "examples": [
-                                    2
-                                ]
-                            },
                             "name": {
                                 "$id": "#/properties/ingredients/items/properties/unit/properties/name",
                                 "type": "string",
@@ -108,15 +90,14 @@
                                 ],
                                 "pattern": "^(.*)$"
                             },
-                            "type": {
-                                "$id": "#/properties/ingredients/items/properties/unit/properties/type",
-                                "type": "string",
-                                "title": "The Type Schema",
-                                "default": "",
+                            "metric": {
+                                "$id": "#/properties/ingredients/items/properties/unit/properties/metric",
+                                "type": "boolean",
+                                "title": "The Metric Schema",
+                                "default": false,
                                 "examples": [
-                                    "imp"
-                                ],
-                                "pattern": "^(.*)$"
+                                    false
+                                ]
                             }
                         }
                     }
@@ -152,7 +133,7 @@
                         "title": "The Time Schema",
                         "default": 0,
                         "examples": [
-                            12
+                            10
                         ]
                     },
                     "steps": {
@@ -183,7 +164,7 @@
                                     "title": "The Description Schema",
                                     "default": "",
                                     "examples": [
-                                        "Lorem ipsum dolor"
+                                        "Brown butter in a saucepan. Set aside to cool in fridge for at least 1 hour, or until solid."
                                     ],
                                     "pattern": "^(.*)$"
                                 }
@@ -193,13 +174,52 @@
                 }
             }
         },
+        "serves": {
+            "$id": "#/properties/serves",
+            "type": "integer",
+            "title": "The Serves Schema",
+            "default": 0,
+            "examples": [
+                10
+            ]
+        },
+        "servingSize": {
+            "$id": "#/properties/servingSize",
+            "type": "object",
+            "title": "The Servingsize Schema",
+            "required": [
+                "number",
+                "unit"
+            ],
+            "properties": {
+                "number": {
+                    "$id": "#/properties/servingSize/properties/number",
+                    "type": "integer",
+                    "title": "The Number Schema",
+                    "default": 0,
+                    "examples": [
+                        2
+                    ]
+                },
+                "unit": {
+                    "$id": "#/properties/servingSize/properties/unit",
+                    "type": "string",
+                    "title": "The Unit Schema",
+                    "default": "",
+                    "examples": [
+                        "cookies"
+                    ],
+                    "pattern": "^(.*)$"
+                }
+            }
+        },
         "created": {
             "$id": "#/properties/created",
             "type": "string",
             "title": "The Created Schema",
             "default": "",
             "examples": [
-                "2018-11-13T20:20:39+00:00"
+                "2019-02-25T20:20:39+00:00"
             ],
             "pattern": "^(.*)$"
         },
@@ -209,7 +229,7 @@
             "title": "The Lastmodified Schema",
             "default": "",
             "examples": [
-                "2018-11-13T20:20:39+00:00"
+                "2019-02-25T20:20:39+00:00"
             ],
             "pattern": "^(.*)$"
         },
@@ -219,7 +239,7 @@
             "title": "The Src Schema",
             "default": "",
             "examples": [
-                "https://foodwishes.blogspot.com/2019/02/creamy-cashew-chicken-curry-moooove.html"
+                "https://basicswithbabish.co/basicsepisodes/2017/10/23/baressentials-7xwwz"
             ],
             "pattern": "^(.*)$"
         },
@@ -233,9 +253,11 @@
                 "title": "The Items Schema",
                 "default": "",
                 "examples": [
-                    "tag1",
-                    "tag2",
-                    "tag3"
+                    "baking",
+                    "cookies",
+                    "dessert",
+                    "easy",
+                    "gourmet"
                 ],
                 "pattern": "^(.*)$"
             }
@@ -250,9 +272,7 @@
                 "title": "The Items Schema",
                 "default": "",
                 "examples": [
-                    "link1",
-                    "link2",
-                    "link3"
+                    "https://www.youtube.com/watch?v=ylxzfecackM"
                 ],
                 "pattern": "^(.*)$"
             }
