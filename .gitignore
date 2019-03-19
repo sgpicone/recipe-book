@@ -7,7 +7,7 @@
 /backend/dist
 /backend/tmp
 /backend/out-tsc
-
+/swag-gen/*
 # dependencies
 /frontend/node_modules
 /backend/node_modules
