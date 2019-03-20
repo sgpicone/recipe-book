@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiModule } from 'api.module';
 import { MaterialModule } from './material/material.module';
 import { RecipeCreateComponent } from './recipe-create/recipe-create.component';
+import { IngredientComponent } from './recipe-create/ingredient/ingredient.component';
+import { MethodSectionComponent } from './recipe-create/method-section/method-section.component';
+import { MethodStepComponent } from './recipe-create/method-step/method-step.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +22,14 @@ import { RecipeCreateComponent } from './recipe-create/recipe-create.component';
     DashboardComponent,
     RecipeDetailComponent,
     RecipesComponent,
-    RecipeCreateComponent
+    RecipeCreateComponent,
+    IngredientComponent,
+    MethodSectionComponent,
+    MethodStepComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,

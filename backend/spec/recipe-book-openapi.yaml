@@ -300,6 +300,7 @@ components:
             $ref: '#/components/schemas/Step'
         created:
           type: string
+          format: date-time
         lastModified:
           type: string
           format: date-time

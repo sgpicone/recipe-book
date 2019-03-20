@@ -17,15 +17,15 @@
     </div>
     <mat-divider></mat-divider>
     <div class="rec-ingr">
-      <h3>Ingredients</h3>
+      <h3 class="pt-2">Ingredients</h3>
       <mat-list>
         <mat-list-item *ngFor="let ingr of recipe.ingredients">
           <span *ngIf="ingr.qty; else noQty" [ngPlural]="ingr.qty">
             <ng-template ngPluralCase="=1">
-              {{ingr.qty}} {{ingr.unit ? ingr.unit.name : ingr.name}} {{ingr.unit ? ingr.name : ''}}
+              {{ingr.qty}} {{ingr.unit ? ingr.unit : ingr.name}} {{ingr.unit ? ingr.name : ''}}
             </ng-template>
             <ng-template ngPluralCase="other">
-              {{ingr.qty}} {{ingr.unit ? ingr.unit.name : ingr.name}}s {{ingr.unit ? ingr.name : ''}}
+              {{ingr.qty}} {{ingr.unit ? ingr.unit : ingr.name}}s {{ingr.unit ? ingr.name : ''}}
             </ng-template>
           </span>
           <ng-template #noQty>{{ingr.name}}</ng-template>
@@ -34,7 +34,7 @@
     </div>
     <mat-divider></mat-divider>
     <div class="rec-meth">
-      <h3>Method</h3>
+      <h3 class="pt-2">Method</h3>
       <mat-list>
         <ng-container *ngFor="let section of recipe.method">
           <mat-list-item matSubheader [ngPlural]="section.time.value">
@@ -46,7 +46,7 @@
           <mat-list class="rec-sublist">
             <ng-container *ngFor="let step of section.steps">
               <mat-list-item matLine>
-                <span class="rec-step">{{step.step}}</span> {{step.description}}
+                <span class="rec-step">{{step.number}}</span> {{step.description}}
               </mat-list-item>
             </ng-container>
           </mat-list>

@@ -20,7 +20,7 @@
     servingSize?: ServingSize;
     ingredients?: Array<Ingredient>;
     method?: Array<Step>;
-    created?: string;
+    created?: Date;
     lastModified?: Date;
     src?: string;
     tags?: Array<string>;
