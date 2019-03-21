@@ -8,7 +8,7 @@
             <label for="name" class="col-md-12">Recipe Name</label>
             <input formControlName="name" type="text" class="form-control col-md-12">
             <small *ngIf="!recipeForm.controls.name.valid" class="text-danger">
-              Name is required.
+              Required.
             </small>
           </div>
 
@@ -30,7 +30,7 @@
                   <div class="form-group col-md-6">
                     <input formControlName="qty" type="number" class="form-control" placeholder="number" />
                     <small [hidden]="recipeForm.controls.servingSize.controls.qty.valid" class="text-danger">
-                      Name is required.
+                      Required.
                     </small>
                   </div>
                   <div class="form-group col-md-6">
@@ -44,19 +44,21 @@
             </div>
           </div>
 
-          <div formArrayName="ingredients" class="card">
+          <div formArrayName="ingredients" class="card mt-4">
             <div class="card-body">
               <div class="card-title">Ingredients</div>
               <div *ngFor="let ingredient of recipeForm.controls.ingredients.controls; let i=index">
+                <div class="row">
 
-                <div [formGroupName]="i">
-                  <app-ingredient [ingredientForm]="recipeForm.controls.ingredients.controls[i]"></app-ingredient>
-                </div>
-                <div class="mb-2 mt-n2">
-                  <a class="text-danger" *ngIf="recipeForm.controls.ingredients.controls.length > 1"
-                    (click)="removeIngredient(i)">
-                    ( - Remove Ingredient)
-                  </a>
+                  <div class="col-md-11" [formGroupName]="i">
+                    <app-ingredient [ingredientForm]="recipeForm.controls.ingredients.controls[i]" (addEvent)="addIngredient()"></app-ingredient>
+                  </div>
+                  <div class="col-md-1 mt-4 pt-3 ml-n3">
+                    <a class="text-danger" *ngIf="recipeForm.controls.ingredients.controls.length > 1"
+                      (click)="removeIngredient(i)" >
+                      ( - )
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -65,28 +67,38 @@
             </div>
           </div>
 
-          <div formArrayName="method" class="card">
+          <div formArrayName="method" class="card my-4">
             <div class="card-body">
               <div class="card-title">Method</div>
-              <div *ngFor="let section of recipeForm.controls.method.controls; let i=index">
+              <div *ngFor="let step of recipeForm.controls.method.controls; let i=index">
 
                 <div [formGroupName]="i">
-                  <app-method-section [sectionNumber]="i" [sectionForm]="recipeForm.controls.method.controls[i]"></app-method-section>
+                  <app-method-step [stepNumber]="i" [stepForm]="recipeForm.controls.method.controls[i]">
+                  </app-method-step>
                 </div>
                 <div class="mb-2 mt-n2">
-                  <a class="text-danger" *ngIf="recipeForm.controls.ingredients.controls.length > 1"
-                    (click)="removeMethodSection(i)">
-                    ( - Remove Section)
+                  <a class="text-danger" *ngIf="recipeForm.controls.method.controls.length > 1"
+                    (click)="removeMethodStep(i)">
+                    ( - Remove Step)
                   </a>
                 </div>
 
               </div>
             </div>
             <div class="mx-2 mb-2 mt-n4">
-              <a class="text-primary" (click)="addMethodSection()"> + Add Section</a>
+              <a class="text-primary" (click)="addMethodStep()"> + Add Step</a>
             </div>
           </div>
 
+          <div class="form-group">
+            <label for="src" class="col-md-12">Original Source</label>
+            <input formControlName="src" type="text" class="form-control" />
+          </div>
+          
+          <div class="form-group">
+            <label for="tags" class="col-md-12">tags</label>
+            <tag-input formControlName="tags" theme="bootstrap" class="col-md-12"></tag-input>
+          </div>
 
           <button class="btn btn-primary my-2" type="submit" [disabled]="!recipeForm.valid">Add!</button>
         </form>

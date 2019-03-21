@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { MeasurementUnit } from 'model/measurementUnit';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ingredient',
@@ -10,5 +12,17 @@ export class IngredientComponent {
 
   @Input()
   public ingredientForm: FormGroup;
+
+  @Output()
+  public addEvent = new EventEmitter();
+
+  public units = MeasurementUnit;
+  public keys = Object.keys;
+
+  constructor() { }
+
+  onEnter(): void {
+    this.addEvent.emit(null);
+  }
 
 }

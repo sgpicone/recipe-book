@@ -13,8 +13,9 @@ import { ApiModule } from 'api.module';
 import { MaterialModule } from './material/material.module';
 import { RecipeCreateComponent } from './recipe-create/recipe-create.component';
 import { IngredientComponent } from './recipe-create/ingredient/ingredient.component';
-import { MethodSectionComponent } from './recipe-create/method-section/method-section.component';
 import { MethodStepComponent } from './recipe-create/method-step/method-step.component';
+
+import { TagInputModule } from 'ngx-chips';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,6 @@ import { MethodStepComponent } from './recipe-create/method-step/method-step.com
     RecipesComponent,
     RecipeCreateComponent,
     IngredientComponent,
-    MethodSectionComponent,
     MethodStepComponent
   ],
   imports: [
@@ -35,7 +35,8 @@ import { MethodStepComponent } from './recipe-create/method-step/method-step.com
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ApiModule
+    ApiModule,
+    TagInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

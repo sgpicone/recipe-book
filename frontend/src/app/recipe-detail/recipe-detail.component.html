@@ -5,10 +5,13 @@
     <div class="rec-info">
       <mat-list>
         <mat-list-item>
+          Yield: {{recipe.serves * recipe.servingSize.qty}} {{recipe.servingSize.unit}}
+        </mat-list-item>
+        <mat-list-item>
           Serves: {{recipe.serves}}
         </mat-list-item>
         <mat-list-item>
-          Serving Size: {{recipe.servingSize.number}} {{recipe.servingSize.unit}}
+          Serving Size: {{recipe.servingSize.qty}} {{recipe.servingSize.unit}}
         </mat-list-item>
         <mat-list-item *ngIf="recipe.src">
           <span>Original Source: <a href="{{recipe.src}}" target="_blank">{{recipe.src}}</a></span>
@@ -25,7 +28,7 @@
               {{ingr.qty}} {{ingr.unit ? ingr.unit : ingr.name}} {{ingr.unit ? ingr.name : ''}}
             </ng-template>
             <ng-template ngPluralCase="other">
-              {{ingr.qty}} {{ingr.unit ? ingr.unit : ingr.name}}s {{ingr.unit ? ingr.name : ''}}
+              {{ingr.qty}} {{ingr.unit ? ingr.unit : ingr.name}}{{ingr.name.endsWith('s') ? 'es' : 's'}} {{ingr.unit ? ingr.name : ''}}
             </ng-template>
           </span>
           <ng-template #noQty>{{ingr.name}}</ng-template>
@@ -36,20 +39,10 @@
     <div class="rec-meth">
       <h3 class="pt-2">Method</h3>
       <mat-list>
-        <ng-container *ngFor="let section of recipe.method">
-          <mat-list-item matSubheader [ngPlural]="section.time.value">
-            <ng-template ngPluralCase="=1">Section {{section.section}} -- {{section.time.value}}
-              {{section.time.unit}}</ng-template>
-            <ng-template ngPluralCase="other">Section {{section.section}} -- {{section.time.value}}
-              {{section.time.unit}}s</ng-template>
+        <ng-container *ngFor="let step of recipe.method; let i=index">
+          <mat-list-item matLine>
+            <span >{{i+1}}</span> <span>{{step.description}}</span>
           </mat-list-item>
-          <mat-list class="rec-sublist">
-            <ng-container *ngFor="let step of section.steps">
-              <mat-list-item matLine>
-                <span class="rec-step">{{step.number}}</span> {{step.description}}
-              </mat-list-item>
-            </ng-container>
-          </mat-list>
         </ng-container>
       </mat-list>
     </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Recipe } from 'model/recipe';
+import { MeasurementUnit } from 'model/models';
 
 @Component({
   selector: 'app-recipe-create',
@@ -26,11 +27,11 @@ export class RecipeCreateComponent implements OnInit {
         this.initIngredient()
       ]),
       method: this.formBuilder.array([
-        this.initMethodSection()
+        this.initMethodStep()
       ]),
       src: [''],
-      tags: [''], // need to add tag bois
-      links: [''] // need to add link bois
+      tags: [''],
+      links: this.formBuilder.array([]) // need to add link bois
     });
   }
 
@@ -46,11 +47,6 @@ export class RecipeCreateComponent implements OnInit {
   initMethodSection() {
     // init a method section
     return this.formBuilder.group({
-      section: ['', Validators.required],
-      time: this.formBuilder.group({
-        value: ['', Validators.required],
-        unit: ['', Validators.required]
-      }),
       steps: this.formBuilder.array([
         this.initMethodStep()
       ])
@@ -60,7 +56,6 @@ export class RecipeCreateComponent implements OnInit {
   initMethodStep() {
     // init a method step
     return this.formBuilder.group({
-      number: ['', Validators.required],
       description: ['', Validators.required]
     });
   }
@@ -81,6 +76,16 @@ export class RecipeCreateComponent implements OnInit {
   }
 
   removeMethodSection(i: number) {
+    const ctrl = this.recipeForm.controls.method as FormArray;
+    ctrl.removeAt(i);
+  }
+
+  addMethodStep() {
+    const ctrl = this.recipeForm.controls.method as FormArray;
+    ctrl.push(this.initMethodStep());
+  }
+
+  removeMethodStep(i: number) {
     const ctrl = this.recipeForm.controls.method as FormArray;
     ctrl.removeAt(i);
   }

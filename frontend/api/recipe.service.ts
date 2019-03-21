@@ -175,7 +175,7 @@ export class RecipeService {
         const consumes: string[] = [
         ];
         console.log("tryna do it");
-        return this.httpClient.get<Recipe>(`http://localhost:4200/assets/cookie_recipe.json`);
+        return this.httpClient.get<Recipe>(`http://localhost:4200/assets/hummus_recipe.json`);
 
         // return this.httpClient.get<Recipe>(`${this.basePath}/recipes/${encodeURIComponent(String(id))}`,
         //     {

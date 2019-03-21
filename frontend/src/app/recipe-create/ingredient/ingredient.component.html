@@ -4,22 +4,23 @@
     <label>Quantity</label>
     <input class="form-control" type="number" formControlName="qty" />
     <small [hidden]="ingredientForm.controls.qty.valid" class="text-danger">
-      Quantity is required.
+      Required.
     </small>
+  </div>
+
+  <div class="form-group col-md-4">
+    <label>Unit</label>
+    <select formControlName="unit" class="form-control">
+      <option *ngFor="let unit of keys(units)" [ngValue]="unit">{{units[unit]}}</option>
+    </select>
   </div>
 
   <div class="form-group col-md-6">
     <label>Name</label>
-    <input class="form-control" type="text" formControlName="name" />
+    <input class="form-control" type="text" formControlName="name" (keyup.enter)="onEnter()" />
     <small [hidden]="ingredientForm.controls.name.valid" class="text-danger">
-      Name is required.
+      Required.
     </small>
-  </div>
-
-
-  <div class="form-group col-md-4">
-    <label>Unit</label>
-    <input class="form-control" type="text" formControlName="unit" />
   </div>
 
 </div>

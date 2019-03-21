@@ -332,21 +332,6 @@ components:
     
     Step:
       properties:
-        section:
-          type: integer
-          format: int32
-        step-time:
-          $ref: '#/components/schemas/StepTime'
-        step-details:
-          type: array
-          items:
-            $ref: '#/components/schemas/StepDetails'
-
-    StepDetails:
-      properties:
-        number:
-          type: integer
-          format: int32
         description:
           type: string
 
