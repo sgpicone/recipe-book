@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Recipe } from 'model/recipe';
 import { MeasurementUnit } from 'model/models';
+import { RecipeService } from 'api/recipe.service';
 
 @Component({
   selector: 'app-recipe-create',
@@ -11,7 +12,9 @@ import { MeasurementUnit } from 'model/models';
 export class RecipeCreateComponent implements OnInit {
   public recipeForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private recipeService: RecipeService) { }
 
   ngOnInit() {
     // init the form
@@ -90,8 +93,10 @@ export class RecipeCreateComponent implements OnInit {
     ctrl.removeAt(i);
   }
 
-  save(model: Recipe) {
-    console.log(model);
+  save(recipe: FormGroup) {
+    console.log(recipe.value);
+    this.recipeService.addRecipe(recipe.value)
+      .subscribe(recipe => console.log(recipe));
   }
 
 }

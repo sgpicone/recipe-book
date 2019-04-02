@@ -151,7 +151,7 @@
     ],
     "serves": 10,
     "servingSize": {
-        "number": 2,
+        "qty": 2,
         "unit": "cookies"
     },
     "created": "2019-02-25T20:20:39+00:00",

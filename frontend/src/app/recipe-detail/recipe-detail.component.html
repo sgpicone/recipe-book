@@ -5,13 +5,13 @@
     <div class="rec-info">
       <mat-list>
         <mat-list-item>
-          Yield: {{recipe.serves * recipe.servingSize.qty}} {{recipe.servingSize.unit}}
+          Yield: {{recipe.servingSize ? recipe.serves * recipe.servingSize.qty : ''}} {{recipe.servingSize ? recipe.servingSize.unit : ''}}
         </mat-list-item>
         <mat-list-item>
           Serves: {{recipe.serves}}
         </mat-list-item>
         <mat-list-item>
-          Serving Size: {{recipe.servingSize.qty}} {{recipe.servingSize.unit}}
+          Serving Size: {{recipe.servingSize ? recipe.servingSize.qty : ''}} {{recipe.servingSize ? recipe.servingSize.unit : ''}}
         </mat-list-item>
         <mat-list-item *ngIf="recipe.src">
           <span>Original Source: <a href="{{recipe.src}}" target="_blank">{{recipe.src}}</a></span>

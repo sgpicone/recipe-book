@@ -104,6 +104,7 @@
         </form>
       </div>
       <div class="col-lg-6">
+        <app-recipe-detail [(recipe)]="recipeForm"></app-recipe-detail>
         <pre class="col-lg-6">
               {{recipeForm.value | json}}
             </pre>

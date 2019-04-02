@@ -11,7 +11,8 @@ import { RecipeService } from 'api/recipe.service';
 })
 export class RecipeDetailComponent implements OnInit {
 
-  recipe: Recipe;
+  @Input()
+  public recipe: Recipe;
 
   constructor(
     private route: ActivatedRoute, // for finding the route link with the recipe id in it
@@ -20,7 +21,10 @@ export class RecipeDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getRecipe();
+    if(!this.recipe) {
+      console.log('doin it gangsta style');
+      this.getRecipe();
+    }
   }
 
   getRecipe(): void {

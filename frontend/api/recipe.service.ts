@@ -29,7 +29,7 @@ import { Configuration } from '../configuration';
 @Injectable()
 export class RecipeService {
 
-    protected basePath = 'http://localhost:8080/RecipeBook/api/v1';
+    protected basePath = 'http://localhost:3000/RecipeBook/api/v1';
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
@@ -93,8 +93,8 @@ export class RecipeService {
         if (httpContentTypeSelected != undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
-
-        return this.httpClient.post<Recipe>(`${this.basePath}/recipes`,
+        console.log('Im here');
+        return this.httpClient.post<Recipe>(`${this.basePath}/recipes`, body,
             {
                 withCredentials: this.configuration.withCredentials,
                 headers: headers,
@@ -224,7 +224,7 @@ export class RecipeService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-
+        console.log('here i amn\'t');
         return this.httpClient.get<Array<Recipe>>(`${this.basePath}/recipes`,
             {
                 params: queryParameters,
