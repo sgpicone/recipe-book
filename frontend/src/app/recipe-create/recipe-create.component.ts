@@ -100,10 +100,10 @@ export class RecipeCreateComponent implements OnInit {
     ctrl.removeAt(i);
   }
 
-  save(recipe: FormGroup) {
-    console.log(recipe.value);
-    this.recipeService.addRecipe(recipe.value)
-      .subscribe(recipe => console.log(recipe));
+  save(recipeToSave: FormGroup) {
+    console.log(recipeToSave.value);
+    this.recipeService.addRecipe(recipeToSave.value)
+      .subscribe(returnedRecipe => console.log(returnedRecipe));
   }
 
 }
