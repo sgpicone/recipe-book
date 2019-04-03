@@ -24,22 +24,35 @@
 
           <div formGroupName="servingSize" class="form-group">
             <label for="servingSize" class="col-md-12">Serving Size</label>
-            <div class="col-md-12">
-              <div class="form-inline">
-                <div class="form-group">
-                  <div class="form-group col-md-6">
-                    <input formControlName="qty" type="number" class="form-control" placeholder="number" />
-                    <small [hidden]="recipeForm.controls.servingSize.controls.qty.valid" class="text-danger">
-                      Required.
-                    </small>
-                  </div>
-                  <div class="form-group col-md-6">
-                    <input formControlName="unit" type="text" class="form-control" placeholder="items" />
-                    <small [hidden]="recipeForm.controls.servingSize.controls.unit.valid" class="text-danger">
-                      must be 3 char or more.
-                    </small>
-                  </div>
-                </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input formControlName="qty" type="number" class="form-control" placeholder="number" />
+                <small [hidden]="recipeForm.controls.servingSize.controls.qty.valid" class="text-danger">
+                  Required.
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <input formControlName="unit" type="text" class="form-control" placeholder="items" />
+                <small [hidden]="recipeForm.controls.servingSize.controls.unit.valid" class="text-danger">
+                  must be 3 char or more.
+                </small>
+              </div>
+            </div>
+          </div>
+
+          <div formGroupName="time" class="form-group">
+            <label for="time" class="col-md-12">Approx Time</label>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input formControlName="time" type="number" class="form-control" placeholder="number" />
+                <small [hidden]="recipeForm.controls.time.controls.time.valid" class="text-danger">
+                  Required.
+                </small>
+              </div>
+              <div class="form-group col-md-6">
+                <select formControlName="unit" class="form-control">
+                  <option *ngFor="let unit of keys(timeUnits)" [ngValue]="unit">{{timeUnits[unit]}}</option>
+                </select>
               </div>
             </div>
           </div>
@@ -51,11 +64,12 @@
                 <div class="row">
 
                   <div class="col-md-11" [formGroupName]="i">
-                    <app-ingredient [ingredientForm]="recipeForm.controls.ingredients.controls[i]" (addEvent)="addIngredient()"></app-ingredient>
+                    <app-ingredient [ingredientForm]="recipeForm.controls.ingredients.controls[i]"
+                      (addEvent)="addIngredient()"></app-ingredient>
                   </div>
                   <div class="col-md-1 mt-4 pt-3 ml-n3">
                     <a class="text-danger" *ngIf="recipeForm.controls.ingredients.controls.length > 1"
-                      (click)="removeIngredient(i)" >
+                      (click)="removeIngredient(i)">
                       ( - )
                     </a>
                   </div>
@@ -94,7 +108,7 @@
             <label for="src" class="col-md-12">Original Source</label>
             <input formControlName="src" type="text" class="form-control" />
           </div>
-          
+
           <div class="form-group">
             <label for="tags" class="col-md-12">tags</label>
             <tag-input formControlName="tags" theme="bootstrap" class="col-md-12"></tag-input>
@@ -104,7 +118,6 @@
         </form>
       </div>
       <div class="col-lg-6">
-        <app-recipe-detail [(recipe)]="recipeForm"></app-recipe-detail>
         <pre class="col-lg-6">
               {{recipeForm.value | json}}
             </pre>

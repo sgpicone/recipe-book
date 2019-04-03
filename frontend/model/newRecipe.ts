@@ -11,6 +11,7 @@
  */import { Ingredient } from './ingredient';
    import { ServingSize } from './servingSize';
    import { Step } from './step';
+   import { RecipeTime } from './recipeTime';
 
 
    export interface NewRecipe {
@@ -20,8 +21,7 @@
     servingSize?: ServingSize;
     ingredients?: Array<Ingredient>;
     method?: Array<Step>;
-    created?: Date;
-    lastModified?: Date;
+    time?: RecipeTime;
     src?: string;
     tags?: Array<string>;
     links?: Array<string>;

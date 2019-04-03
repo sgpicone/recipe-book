@@ -93,7 +93,7 @@ export class RecipeService {
         if (httpContentTypeSelected != undefined) {
             headers = headers.set('Content-Type', httpContentTypeSelected);
         }
-        console.log('Im here');
+
         return this.httpClient.post<Recipe>(`${this.basePath}/recipes`, body,
             {
                 withCredentials: this.configuration.withCredentials,
@@ -174,17 +174,15 @@ export class RecipeService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        console.log("tryna do it");
-        return this.httpClient.get<Recipe>(`http://localhost:4200/assets/hummus_recipe.json`);
 
-        // return this.httpClient.get<Recipe>(`${this.basePath}/recipes/${encodeURIComponent(String(id))}`,
-        //     {
-        //         withCredentials: this.configuration.withCredentials,
-        //         headers: headers,
-        //         observe: observe,
-        //         reportProgress: reportProgress
-        //     }
-        // );
+        return this.httpClient.get<Recipe>(`${this.basePath}/recipes/${encodeURIComponent(String(id))}`,
+            {
+                withCredentials: this.configuration.withCredentials,
+                headers: headers,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
     }
 
     /**
@@ -224,7 +222,6 @@ export class RecipeService {
         // to determine the Content-Type header
         const consumes: string[] = [
         ];
-        console.log('here i amn\'t');
         return this.httpClient.get<Array<Recipe>>(`${this.basePath}/recipes`,
             {
                 params: queryParameters,

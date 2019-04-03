@@ -12,6 +12,9 @@
    import { NewRecipe } from './newRecipe';
 
 
-   export interface Recipe extends NewRecipe {
+   export interface Recipe {
     id: number;
+    recipe?: NewRecipe;
+    createdAt?: Date;
+    updatedAt?: Date;
 }

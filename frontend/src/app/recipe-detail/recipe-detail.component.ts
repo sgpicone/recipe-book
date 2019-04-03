@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Recipe } from 'model/recipe';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { RecipeService } from 'api/recipe.service';
+import { NewRecipe } from 'model/models';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -12,25 +12,19 @@ import { RecipeService } from 'api/recipe.service';
 export class RecipeDetailComponent implements OnInit {
 
   @Input()
-  public recipe: Recipe;
+  public recipe: NewRecipe;
+
+  public viewRecipe: Recipe;
 
   constructor(
     private route: ActivatedRoute, // for finding the route link with the recipe id in it
-    private recipeService: RecipeService,
     private location: Location
   ) { }
 
   ngOnInit(): void {
-    if(!this.recipe) {
-      console.log('doin it gangsta style');
-      this.getRecipe();
-    }
-  }
-
-  getRecipe(): void {
-    const id = +this.route.snapshot.paramMap.get('id'); // + converts it into a number
-    this.recipeService.findRecipeById(id)
-      .subscribe(recipe => this.recipe = recipe);
+    this.route.data.subscribe((data: {recipe: Recipe}) => {
+      this.recipe = data.recipe.recipe;
+    });
   }
 
   goBack(): void {

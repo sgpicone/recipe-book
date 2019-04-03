@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
-import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiModule } from 'api.module';
 import { MaterialModule } from './material/material.module';
@@ -16,16 +16,20 @@ import { IngredientComponent } from './recipe-create/ingredient/ingredient.compo
 import { MethodStepComponent } from './recipe-create/method-step/method-step.component';
 
 import { TagInputModule } from 'ngx-chips';
+import { RecipeResolver } from './resolvers/recipe.resolver';
+import { RecipeListResolver } from './resolvers/recipe-list.resolver';
+import { RecipeCardComponent } from './recipe-list/recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     RecipeDetailComponent,
-    RecipesComponent,
+    RecipeListComponent,
     RecipeCreateComponent,
     IngredientComponent,
-    MethodStepComponent
+    MethodStepComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,10 @@ import { TagInputModule } from 'ngx-chips';
     ApiModule,
     TagInputModule
   ],
-  providers: [],
+  providers: [
+    RecipeResolver,
+    RecipeListResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

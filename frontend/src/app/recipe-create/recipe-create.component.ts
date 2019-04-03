@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Recipe } from 'model/recipe';
-import { MeasurementUnit } from 'model/models';
+import { MeasurementUnit, TimeUnit } from 'model/models';
 import { RecipeService } from 'api/recipe.service';
 
 @Component({
@@ -11,6 +11,9 @@ import { RecipeService } from 'api/recipe.service';
 })
 export class RecipeCreateComponent implements OnInit {
   public recipeForm: FormGroup;
+
+  public timeUnits = TimeUnit;
+  public keys = Object.keys;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,6 +27,10 @@ export class RecipeCreateComponent implements OnInit {
       serves: [''],
       servingSize: this.formBuilder.group({
         qty: [''],
+        unit: ['']
+      }),
+      time: this.formBuilder.group({
+        time: [''],
         unit: ['']
       }),
       ingredients: this.formBuilder.array([
