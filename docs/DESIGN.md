@@ -37,14 +37,19 @@ As a user, I want to be able to:
 1. *** Log when I have made a recipe and include any comments, thoughts, or changes
 1. Convert ingredient units into other common units
 1. Import recipes from web links (lol)
+1. Share my recipes between multiple instances of the app (e.g. a mobile app and a desktop app)
 
 ## Design
 
-Application will be a MEAN stack, most likely. Angular 6/7? will operate as the frontend application, with ExpressJS exposing a REST API to the NodeJS backend that provides access to a mongodb datastore (probably).
+Application will be an ElectronJS app, with Angular operating as the frontend.
+
+The data will be stored in a sqlite database, or some other similar small-form database that maintains its data within a single file. The idea behind this is to allow a user to store their database in a shared folder (e.g. dropbox or google drive) and merely point this application at that database, allowing them some rudimentary cloud sharing feature between, say, multiple desktop applications and/or a mobile app down the line.
+
+A potential future stretch goal would be to have an actual cloud database and to allow users to push their recipes up to it or pull recipes from it, with a website available for browsing recipes.
 
 ## Viewing recipes
 
-At application startup, a GET REST request will be sent to the backend for retreiving summary data about all of the recipes from the datastore. Summary data should include only the name, description, and tags of each recipe.
+At application startup, a request will be sent to the backend for retreiving summary data about all of the recipes from the datastore. Summary data should include only the name, description, and tags of each recipe.
 
 Users will be provided with a view displaying a list of available recipes. This list will be in a tabular format and, on larger displays, occupy (roughly) 50% of the screen. This table will contain the high-level metadata of each recipe, e.g. Name, description, tags. On large screens, when a recipe is highlighted/selected, the other (right hand) 50% of the screen will display a preview of the recipe.
 
@@ -60,7 +65,7 @@ The far right hand side of the recipe list will contain an X field, which the us
 
 ## Viewing a single recipe
 
-Clicking/selecting the recipe name will change the view to displaying the recipe on the full screen. This will send a GET REST request to the backend to query the database for the full data of the recipe.
+Clicking/selecting the recipe name will change the view to displaying the recipe on the full screen. This will send a request to the backend to query the database for the full data of the recipe.
 
 When viewing a recipe, a back button in the top left side of the page will allow the user to navigate back to the recipe list.
 
@@ -76,7 +81,7 @@ A global button will be provided at the top of the screen on all pages for creat
 
 The create recipe screen will be a form that allows the user to fill in all of the fields of a recipe, detailed in [Recipe Format](#recipe-format).
 
-To save the recipe to the datastore, the user will be able to press a button located at the top of the screen to save the recipe. This will POST a REST request to the backend, with the body containing the new recipe to be added, in JSON format.
+To save the recipe to the datastore, the user will be able to press a button located at the top of the screen to save the recipe. This will send a request to the backend, with the body containing the new recipe to be added, in JSON format.
 
 ---
 

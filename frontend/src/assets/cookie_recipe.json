@@ -1,0 +1,170 @@
+{
+    "id": 1,
+    "name": "Chocolate Chip Cookies",
+    "description": "This is a recipe description",
+    "ingredients": [
+        {
+            "id": 1,
+            "name": "Unsalted Butter",
+            "qty": 1,
+            "unit": "cup"
+        },
+        {
+            "id": 2,
+            "name": "Sugar",
+            "qty": 0.5,
+            "unit": "cup"
+        },
+        {
+            "id": 3,
+            "name": "Brown Sugar",
+            "qty": 1.5,
+            "unit": "cup"
+        },
+        {
+            "id": 4,
+            "name": "Egg",
+            "qty": 2,
+            "unit": null
+        },
+        {
+            "id": 5,
+            "name": "All purpose flour",
+            "qty": 11.5,
+            "unit": "ounce"
+        },
+        {
+            "id": 6,
+            "name": "Kosher salt",
+            "qty": 1,
+            "unit": "tablespoon"
+        },
+        {
+            "id": 7,
+            "name": "Vanilla extract",
+            "qty": 2,
+            "unit": "teaspoon"
+        },
+        {
+            "id": 8,
+            "name": "Baking soda",
+            "qty": 0.5,
+            "unit": "teaspoon"
+        },
+        {
+            "id": 9,
+            "name": "Cinnamon",
+            "qty": 0.75,
+            "unit": "teaspoon"
+        },
+        {
+            "id": 10,
+            "name": "Chocolate chips",
+            "qty": 8,
+            "unit": "ounce"
+        },
+        {
+            "id": 11,
+            "name": "Walnuts",
+            "qty": 1,
+            "unit": "ounce"
+        },
+        {
+            "id": 12,
+            "name": "Flaky sea salt",
+            "qty": null,
+            "unit": null
+        }
+    ],
+    "method": [
+        {
+            "section": 1,
+            "time": {
+                "value": 10,
+                "unit": "minute"
+            },
+            "steps": [
+                {
+                    "number": 1,
+                    "description": "Brown butter in a saucepan. Set aside to cool in fridge for at least 1 hour, or until solid."
+                }
+            ]
+        },
+        {
+            "section": 2,
+            "time": {
+                "value": 20,
+                "unit": "minute"
+            },
+            "steps": [
+                {
+                    "number": 1,
+                    "description": "Combine butter and sugar in the bowl of a stand mixer. Mix well to combine, until a nougat-like texture is achieved."
+                },
+                {
+                    "number": 2,
+                    "description": "Add COLD eggs, one at a time, to the butter/sugar mixture. Mix well to combine."
+                },
+                {
+                    "number": 3,
+                    "description": "Add vanilla to the mixture and mix well."
+                },
+                {
+                    "number": 4,
+                    "description": "In a separate bowl, whisk flour, salt, baking soda, and cinnamon."
+                },
+                {
+                    "number": 5,
+                    "description": "Add half of dry ingredient mixture to the wet ingredients and mix until everything is just combined. Then, add the rest of the dry ingredients."
+                },
+                {
+                    "number": 6,
+                    "description": "Remove bowl from mixer and add chocolate chips and chopped walnuts. Stir well to incorporate."
+                },
+                {
+                    "number": 7,
+                    "description": "Refrigerate dough for 2 hours or up to 2 days."
+                }
+            ]
+        },
+        {
+            "section": 3,
+            "time": {
+                "value": 20,
+                "unit": "minute"
+            },
+            "steps": [
+                {
+                    "number": 1,
+                    "description": "Preheat oven to 350\u00b0F"
+                },
+                {
+                    "number": 2,
+                    "description": "Roll cookie down into balls, then crack in half and set on cookie sheet."
+                },
+                {
+                    "number": 3,
+                    "description": "Bake cookies for 12-17 minutes or until they've reached your preferred level of doneness. Top with flaky sea salt."
+                }
+            ]
+        }
+    ],
+    "serves": 10,
+    "servingSize": {
+        "number": 2,
+        "unit": "cookies"
+    },
+    "created": "2019-02-25T20:20:39+00:00",
+    "lastModified": "2019-02-25T20:20:39+00:00",
+    "src": "https://basicswithbabish.co/basicsepisodes/2017/10/23/baressentials-7xwwz",
+    "tags": [
+        "baking",
+        "cookies",
+        "dessert",
+        "easy",
+        "gourmet"
+    ],
+    "links": [
+        "https://www.youtube.com/watch?v=ylxzfecackM"
+    ]
+}

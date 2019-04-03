@@ -1,0 +1,60 @@
+<mat-card class="recipe-card" *ngIf="recipe">
+  <mat-card-title>{{recipe.name | uppercase}}</mat-card-title>
+  <mat-card-subtitle class="rec-desc">{{recipe.description}}</mat-card-subtitle>
+  <mat-card-content>
+    <div class="rec-info">
+      <mat-list>
+        <mat-list-item>
+          Yield: {{recipe.servingSize ? recipe.serves * recipe.servingSize.qty : ''}} {{recipe.servingSize ? recipe.servingSize.unit : ''}}
+        </mat-list-item>
+        <mat-list-item>
+          Serves: {{recipe.serves}}
+        </mat-list-item>
+        <mat-list-item>
+          Serving Size: {{recipe.servingSize ? recipe.servingSize.qty : ''}} {{recipe.servingSize ? recipe.servingSize.unit : ''}}
+        </mat-list-item>
+        <mat-list-item *ngIf="recipe.src">
+          <span>Original Source: <a href="{{recipe.src}}" target="_blank">{{recipe.src}}</a></span>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="rec-ingr">
+      <h3 class="pt-2">Ingredients</h3>
+      <mat-list>
+        <mat-list-item *ngFor="let ingr of recipe.ingredients">
+          <span *ngIf="ingr.qty; else noQty" [ngPlural]="ingr.qty">
+            <ng-template ngPluralCase="=1">
+              {{ingr.qty}} {{ingr.unit ? ingr.unit : ingr.name}} {{ingr.unit ? ingr.name : ''}}
+            </ng-template>
+            <ng-template ngPluralCase="other">
+              {{ingr.qty}} {{ingr.unit ? ingr.unit : ingr.name}}{{ingr.name.endsWith('s') ? 'es' : 's'}} {{ingr.unit ? ingr.name : ''}}
+            </ng-template>
+          </span>
+          <ng-template #noQty>{{ingr.name}}</ng-template>
+        </mat-list-item>
+      </mat-list>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="rec-meth">
+      <h3 class="pt-2">Method</h3>
+      <mat-list>
+        <ng-container *ngFor="let step of recipe.method; let i=index">
+          <mat-list-item matLine>
+            <span >{{i+1}}</span> <span>{{step.description}}</span>
+          </mat-list-item>
+        </ng-container>
+      </mat-list>
+    </div>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+
+    <button mat-button (click)="goBack()">Back</button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <span *ngFor="let tag of recipe.tags">
+      <button mat-flat-button><i>{{tag}}</i></button>
+    </span>
+  </mat-card-footer>
+</mat-card>

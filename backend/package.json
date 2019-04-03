@@ -1,26 +1,21 @@
 {
   "name": "recipe-book-backend",
-  "version": "1.0.0",
-  "description": "The backend for the recipe book application",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "babeldev": "babel-watch src/index.js",
-    "dev": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-watch": "^7.0.0"
+    "start": "nodemon ./bin/www"
   },
   "dependencies": {
+    "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
-    "mongoose": "^5.4.15",
-    "swagger-parser": "^6.0.5",
-    "swagger-routes-express": "^2.0.1"
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0",
+    "sequelize": "^5.2.8",
+    "sequelize-cli": "^5.4.0",
+    "sqlite3": "^4.0.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }

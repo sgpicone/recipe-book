@@ -1,0 +1,4 @@
+<p *ngFor="let item of recipeList">
+
+  <button class="btn btn-primary" [routerLink]='["view", item.id]'>{{item.id}} {{item.recipe.name}}</button>
+</p>
