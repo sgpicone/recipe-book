@@ -111,7 +111,7 @@
 
           <div class="form-group">
             <label for="tags" class="col-md-12">tags</label>
-            <tag-input formControlName="tags" theme="bootstrap" class="col-md-12"></tag-input>
+            <tag-input formControlName="tags" modelAsStrings="true" theme="bootstrap" class="col-md-12"></tag-input>
           </div>
 
           <button class="btn btn-primary my-2" type="submit" [disabled]="!recipeForm.valid">Add!</button>

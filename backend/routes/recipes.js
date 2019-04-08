@@ -1,17 +1,17 @@
+'use strict';
 var express = require('express');
 var router = express.Router();
 const db = require('../models');
+const repoService = require('../repos/recipeRepo');
 
 /* GET recipes list page. */
 router.get('/', function (req, res, next) {
-  const tags = req.query.tags;
-  const limit = req.query.limit;
-  return db.Recipe.findAll()
+  return repoService.getRecipeList(req.query.tags, req.query.limit)
     .then((recipes) => res.send(recipes))
     .catch((err) => {
       console.error('There was an error querying recipes', JSON.stringify(err));
       return res.send(err);
-    });
+    });;
 });
 
 
@@ -34,8 +34,21 @@ router.post('/', (req, res) => {
   const recipe = req.body;
   const createdAt = new Date().toDateString();
   const updatedAt = new Date().toDateString();
-  return db.Recipe.create({ recipe, createdAt, updatedAt })
-    .then((recipe) => res.send(recipe))
+  // const tags = recipe.tags.map(tag => db.Tag.findOrCreate({ where: { tag: tag }, defaults: { tag: tag } }))
+    // .spread((tag, created) => tag);
+  return db.Recipe.create({
+    name: recipe.name,
+    description: recipe.description,
+    serving_size: recipe.servingSize.qty,
+    serving_size_unit: recipe.servingSize.unit,
+    number_of_servings: recipe.serves,
+    time: recipe.time.time,
+    time_unit: recipe.time.unit,
+    source: recipe.src,
+    createdAt: createdAt,
+    updatedAt: updatedAt
+  })
+    .then((recipe) => res.status(201).send(recipe))
     .catch((err) => {
       console.error('Error creating recipe', JSON.stringify(recipe));
       return res.status(400).send(err);

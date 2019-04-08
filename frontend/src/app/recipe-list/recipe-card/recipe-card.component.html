@@ -1,3 +1,14 @@
-<p>
-  recipe-card works!
-</p>
+<div class="card">
+  <div class="card-body">
+    <a [routerLink]='["view", recipeId]'>
+      <h5 class="card-title" >{{recipe.name}}</h5>
+    </a>
+    <h6 class="card-subtitle mb-2 text-muted">{{recipe.time | json}}</h6>
+    <p class="card-text text-muted font-italic">{{recipe.description}}</p>
+    <div class="row">
+      <div class="col-md-2" *ngFor="let tag of recipe.tags">
+        <button type="button" class="btn btn-sm btn-primary">{{tag.value}}</button>
+      </div>
+    </div>
+  </div>
+</div>
